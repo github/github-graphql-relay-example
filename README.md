@@ -10,7 +10,7 @@ First, you'll need a GitHub API access token to make GraphQL API requests. You c
 
 ```
 $ git clone https://github.com/github/github-graphql-relay-example
-$ cd github-graphql-rails-example/
+$ cd github-graphql-relay-example/
 $ yarn install
 $ export API_TOKEN=[your API token here]
 $ yarn run get-schema
