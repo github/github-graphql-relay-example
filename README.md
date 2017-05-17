@@ -6,7 +6,7 @@ Demonstrates how to use [Relay Modern](https://facebook.github.io/relay/docs/int
 
 ### Running locally
 
-First, you'll need a GitHub API access token to make GraphQL API requests. This should be set as a `API_TOKEN` environment variable.
+First, you'll need a GitHub API access token to make GraphQL API requests. You can get that [here](https://github.com/settings/tokens/new). This should be set as a `API_TOKEN` environment variable.
 
 ```
 $ git clone https://github.com/github/github-graphql-relay-example
