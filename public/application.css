@@ -18,6 +18,10 @@ body {
   vertical-align: text-top;
 }
 
+.octicon.highlight {
+  color: #ff0;
+}
+
 .repositories {
   width: 350px;
 }
