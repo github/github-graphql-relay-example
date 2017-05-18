@@ -3,3 +3,4 @@ coverage/
 build/
 __generated__/
 schema.graphql
+src/token.js
