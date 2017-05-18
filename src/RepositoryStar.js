@@ -1,6 +1,48 @@
 import React from 'react'
+import environment from './createRelayEnvironment'
 import {commitMutation, createFragmentContainer, graphql} from 'react-relay'
-import {starMutation, unstarMutation} from './Mutations'
+
+function starMutation(starrableId) {
+  const variables = {
+    input: {
+      starrableId
+    },
+  }
+
+  commitMutation(environment, {
+    variables,
+    mutation: graphql`
+      mutation MutationsRepositoryStarMutation($input: StarInput!) {
+        star(input: $input) {
+          starrable {
+            ...RepositoryStar_repository
+          }
+        }
+      }
+    `,
+  })
+}
+
+function unstarMutation(starrableId) {
+  const variables = {
+    input: {
+      starrableId
+    }
+  }
+
+  commitMutation(environment, {
+    variables,
+    mutation: graphql`
+      mutation MutationsRepositoryStarUnstarMutation($input: UnstarInput!) {
+        unstar(input: $input) {
+          starrable {
+            ...RepositoryStar_repository
+          }
+        }
+      }
+    `,
+  })
+}
 
 export default createFragmentContainer(
   RepositoryStar,
