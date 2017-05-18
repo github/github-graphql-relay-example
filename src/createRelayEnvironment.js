@@ -1,16 +1,13 @@
 import {Environment, Network, RecordSource, Store} from 'relay-runtime'
+import token from './token'
 
 function fetchQuery(operation, variables, cacheConfig, uploadables) {
-  if (!sessionStorage['API_TOKEN']) {
-    sessionStorage['API_TOKEN'] = prompt("GitHub API Token")
-  }
-
   return fetch('https://api.github.com/graphql', {
     method: 'POST',
     headers: {
       'Accept': 'application/json',
       'Content-Type': 'application/json',
-      'Authorization': 'Bearer ' + sessionStorage['API_TOKEN']
+      'Authorization': 'Bearer ' + token
     },
     body: JSON.stringify({query: operation.text, variables}),
   }).then(response => {
