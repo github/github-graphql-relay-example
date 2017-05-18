@@ -28,8 +28,6 @@ export function starMutation(starrableId) {
   commitMutation(environment, {
     mutation: starMutationGraphql,
     variables,
-    onCompleted: (response) => { console.log('Success!') },
-    onError: err => console.error(err),
   })
 }
 
@@ -57,7 +55,5 @@ export function unstarMutation(starrableId) {
   commitMutation(environment, {
     mutation: unstarMutationGraphQL,
     variables,
-    onCompleted: (response) => { console.log('Success!') },
-    onError: err => console.error(err),
   })
 }
