@@ -48,7 +48,6 @@ const unstarMutationGraphQL = graphql`
 `
 
 export function unstarMutation(starrableId) {
-  console.info("env", environment)
   const variables: Variables = {
     input: {
       starrableId
