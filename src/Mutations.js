@@ -3,8 +3,6 @@ import {commitMutation, graphql} from 'react-relay'
 import environment from './createRelayEnvironment'
 import RepositoryStar_repository from './RepositoryStar'
 
-type Variables = {[name: string]: any};
-
 const starMutationGraphql = graphql`
   mutation MutationsRepositoryStarMutation($input: StarInput!) {
     star(input: $input) {
@@ -16,7 +14,7 @@ const starMutationGraphql = graphql`
 `
 
 export function starMutation(starrableId) {
-  const variables: Variables = {
+  const variables = {
     input: {
       starrableId
     },
@@ -39,7 +37,7 @@ const unstarMutationGraphQL = graphql`
 `
 
 export function unstarMutation(starrableId) {
-  const variables: Variables = {
+  const variables = {
     input: {
       starrableId
     }
