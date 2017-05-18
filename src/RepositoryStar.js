@@ -1,10 +1,13 @@
 import React from 'react'
-import {createFragmentContainer, graphql} from 'react-relay'
+import {commitMutation, createFragmentContainer, graphql} from 'react-relay'
+import {starMutation, unstarMutation} from './Mutations'
 
 export default createFragmentContainer(
   RepositoryStar,
   graphql`
     fragment RepositoryStar_repository on Repository {
+      id
+      viewerHasStarred
       stargazers {
         totalCount
       }
@@ -13,10 +16,12 @@ export default createFragmentContainer(
 )
 
 function RepositoryStar({repository}) {
+  const octiconClassName = repository.viewerHasStarred ? "octicon octicon-star highlight" : "octicon octicon-star"
+
   return (
     <span className="star-badge">
       {repository.stargazers.totalCount}
-      <span className="octicon octicon-star"></span>
+      <span className={octiconClassName} onClick={() => { repository.viewerHasStarred ? unstarMutation(repository.id) : starMutation(repository.id) }}></span>
     </span>
   )
 }
