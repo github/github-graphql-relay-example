@@ -2,6 +2,7 @@ import React from 'react'
 import {createFragmentContainer, graphql} from 'react-relay'
 
 import RepositoryIcon from './RepositoryIcon'
+import RepositoryStar from './RepositoryStar'
 
 export default createFragmentContainer(
   RepositoryListItem,
@@ -14,11 +15,8 @@ export default createFragmentContainer(
 
       url
 
-      stargazers {
-        totalCount
-      }
-
       ...RepositoryIcon_repository
+      ...RepositoryStar_repository
     }
   `
 )
@@ -26,11 +24,7 @@ export default createFragmentContainer(
 function RepositoryListItem({repository}) {
   return (
     <li className="list-group-item">
-      <span className="star-badge">
-        {repository.stargazers.totalCount}
-        <span className="octicon octicon-star"></span>
-      </span>
-
+      <RepositoryStar repository={repository} />
       <RepositoryIcon repository={repository} />
 
       <a href={repository.url}>
