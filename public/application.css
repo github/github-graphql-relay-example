@@ -18,10 +18,6 @@ body {
   vertical-align: text-top;
 }
 
-.octicon.highlight {
-  color: #ff0;
-}
-
 .repositories {
   width: 350px;
 }
@@ -29,6 +25,15 @@ body {
 .star-badge {
   float: right;
   color: #777;
+}
+
+.star-badge .octicon {
+  margin-left: 3px;
+  color: #777;
+}
+
+.star-badge .highlight {
+  color: #e36209;
 }
 
 .nav-pills .badge {

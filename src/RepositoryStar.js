@@ -21,7 +21,12 @@ function RepositoryStar({repository}) {
   return (
     <span className="star-badge">
       {repository.stargazers.totalCount}
-      <span className={octiconClassName} onClick={() => { repository.viewerHasStarred ? unstarMutation(repository.id) : starMutation(repository.id) }}></span>
+      <a href="#" onClick={(e) => {
+        e.preventDefault()
+        repository.viewerHasStarred ? unstarMutation(repository.id) : starMutation(repository.id)
+      }}>
+        <span className={octiconClassName}></span>
+      </a>
     </span>
   )
 }
