@@ -1,6 +1,7 @@
 import React from 'react'
 import {commitMutation, graphql} from 'react-relay'
 import environment from './createRelayEnvironment'
+import RepositoryStar_repository from './RepositoryStar'
 
 type Variables = {[name: string]: any};
 
@@ -8,11 +9,7 @@ const starMutationGraphql = graphql`
   mutation MutationsRepositoryStarMutation($input: StarInput!) {
     star(input: $input) {
       starrable {
-        id
-        viewerHasStarred
-        stargazers {
-          totalCount
-        }
+        ...RepositoryStar_repository
       }
     }
   }
@@ -35,11 +32,7 @@ const unstarMutationGraphQL = graphql`
   mutation MutationsRepositoryStarUnstarMutation($input: UnstarInput!) {
     unstar(input: $input) {
       starrable {
-        id
-        viewerHasStarred
-        stargazers {
-          totalCount
-        }
+        ...RepositoryStar_repository
       }
     }
   }
