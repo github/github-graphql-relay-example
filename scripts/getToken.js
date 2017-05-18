@@ -8,12 +8,7 @@ process.stdin.on("data", function(text) {
   var tokenJS = `module.exports = "${text.trim()}"\n`
 
   fs.writeFile("src/token.js", tokenJS, function(err) {
-    if (err) {
-      return console.log(err)
-    }
-
     console.log("API token saved.")
-
     process.exit()
   })
 })
