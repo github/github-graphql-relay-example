@@ -11,7 +11,6 @@ First, you'll need a GitHub API access token to make GraphQL API requests. You c
 ```
 $ git clone https://github.com/github/github-graphql-relay-example
 $ cd github-graphql-relay-example/
-$ yarn setup
 $ yarn start
 ```
 
