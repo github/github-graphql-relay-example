@@ -15,3 +15,7 @@ $ yarn start
 ```
 
 Once your server is running, you can open http://localhost:3000. You'll be prompted for your token.
+
+## See also
+
+- [Ruby on Rails example using graphql-client](https://github.com/github/github-graphql-rails-example)
