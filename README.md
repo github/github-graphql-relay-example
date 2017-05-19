@@ -14,7 +14,7 @@ $ cd github-graphql-relay-example/
 $ yarn start
 ```
 
-Once your server is running, you can open http://localhost:3000. You'll be prompted for your token.
+Once your server is running, you can open http://localhost:3000.
 
 ## See also
 
