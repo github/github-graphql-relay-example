@@ -19,8 +19,10 @@
     "webpack": "1.14.0"
   },
   "scripts": {
-    "start": "node scripts/start.js",
+    "start": "yarn setup && node scripts/start.js",
     "relay": "relay-compiler --src ./src --schema schema.graphql",
-    "get-schema": "node scripts/getSchema.js"
+    "get-schema": "node scripts/getSchema.js",
+    "get-token": "node scripts/getToken.js",
+    "setup": "yarn install && yarn run get-token && yarn run get-schema && yarn run relay"
   }
 }
