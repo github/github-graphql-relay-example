@@ -12,8 +12,8 @@ function starMutation(starrableId) {
   commitMutation(environment, {
     variables,
     mutation: graphql`
-      mutation RepositoryStarStarMutation($input: StarInput!) {
-        star(input: $input) {
+      mutation RepositoryStarStarMutation($input: AddStarInput!) {
+        addStar(input: $input) {
           starrable {
             ...RepositoryStar_repository
           }
@@ -33,8 +33,8 @@ function unstarMutation(starrableId) {
   commitMutation(environment, {
     variables,
     mutation: graphql`
-      mutation RepositoryStarUnstarMutation($input: UnstarInput!) {
-        unstar(input: $input) {
+      mutation RepositoryStarUnstarMutation($input: RemoveStarInput!) {
+        removeStar(input: $input) {
           starrable {
             ...RepositoryStar_repository
           }
