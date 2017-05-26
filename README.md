@@ -6,7 +6,9 @@ Demonstrates how to use [Relay Modern](https://facebook.github.io/relay/docs/rel
 
 ### Running locally
 
-First, you'll need a GitHub API access token to make GraphQL API requests. You can get that [here](https://github.com/settings/tokens/new).
+This repo relies on FB's [Watchman](https://facebook.github.io/watchman) service. Follow the [instructions here](https://facebook.github.io/watchman/docs/install.html#buildinstall) for installing it globally.
+
+You'll need a GitHub API access token to make GraphQL API requests. You can get that [here](https://github.com/settings/tokens/new).
 
 ```
 $ git clone https://github.com/github/github-graphql-relay-example
