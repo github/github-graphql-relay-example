@@ -1,9 +1,15 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
+
 import React from 'react'
 import {createPaginationContainer, graphql} from 'react-relay'
 
 import RepositoryListItem from './RepositoryListItem'
 
 class Dashboard extends React.Component {
+  loadMoreRepositories() {
+    this.props.relay.loadMore(10, () => {})
+  }
+
   render() {
     const {viewer} = this.props.data
 
@@ -15,21 +21,18 @@ class Dashboard extends React.Component {
             <span className="badge">{viewer.repositories.totalCount}</span>
           </li>
 
-          {viewer.repositories.edges.map(edge => (
-            <RepositoryListItem repository={edge.node} key={edge.node.id} />
-          ))}
+          {viewer.repositories.edges.map(edge => <RepositoryListItem repository={edge.node} key={edge.node.id} />)}
 
-          <ShowMore repositories={viewer.repositories} onClick={event => {
-            event.preventDefault()
-            this.loadMoreRepositories()
-          }} />
+          <ShowMore
+            repositories={viewer.repositories}
+            onClick={event => {
+              event.preventDefault()
+              this.loadMoreRepositories()
+            }}
+          />
         </ul>
       </div>
     )
-  }
-
-  loadMoreRepositories() {
-    this.props.relay.loadMore(10, (err) => {})
   }
 }
 
@@ -41,11 +44,11 @@ function ShowMore({repositories, onClick}) {
           Show more repositories...
         </a>
 
-        <span className="octicon octicon-sync spinner"></span>
+        <span className="octicon octicon-sync spinner" />
       </li>
     )
   } else {
-    return <noscript></noscript>
+    return <noscript />
   }
 }
 
@@ -56,12 +59,10 @@ export default createPaginationContainer(
       viewer {
         repositories(first: $count, after: $cursor) @connection(key: "Dashboard_repositories") {
           totalCount
-
           pageInfo {
             hasNextPage
             endCursor
           }
-
           edges {
             node {
               id
@@ -73,7 +74,7 @@ export default createPaginationContainer(
     }
   `,
   {
-    getVariables(props, {count, cursor}, fragmentVariables) {
+    getVariables(props, {count, cursor}) {
       return {count, cursor}
     },
     query: graphql`

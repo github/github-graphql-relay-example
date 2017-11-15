@@ -12,9 +12,7 @@ export default createFragmentContainer(
       owner {
         login
       }
-
       url
-
       ...RepositoryIcon_repository
       ...RepositoryStar_repository
     }

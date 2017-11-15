@@ -1,15 +1,13 @@
 process.env.NODE_ENV = 'development'
 
-var webpack = require('webpack')
-var WebpackDevServer = require('webpack-dev-server')
-var path = require('path')
+const webpack = require('webpack')
+const WebpackDevServer = require('webpack-dev-server')
+const path = require('path')
 
-var config = {
-  entry: [
-    require.resolve('../src/index.js')
-  ],
+const config = {
+  entry: [require.resolve('../src/index.js')],
   output: {
-    path: __dirname + '/../build',
+    path: `${__dirname}/../build`,
     filename: 'static/js/bundle.js'
   },
   resolve: {
@@ -20,7 +18,7 @@ var config = {
     loaders: [
       {
         test: /\.js$/,
-        include: path.normalize(__dirname + '/../src'),
+        include: path.normalize(`${__dirname}/../src`),
         loader: 'babel'
       }
     ]
@@ -28,6 +26,6 @@ var config = {
 }
 
 new WebpackDevServer(webpack(config), {
-  contentBase: __dirname + '/../public',
+  contentBase: `${__dirname}/../public`,
   publicPath: '/'
 }).listen(3000)

@@ -1,31 +1,24 @@
-import React, { Component } from 'react'
+import React from 'react'
 
-import {
-  QueryRenderer,
-  graphql,
-} from 'react-relay'
+import {QueryRenderer, graphql} from 'react-relay'
 
 import environment from './createRelayEnvironment'
 
 import Layout from './Layout'
 import Dashboard from './Dashboard'
 
-class App extends Component {
-  render() {
-    const query = graphql`
-      query AppQuery($count: Int!, $cursor: String) {
-        ...Dashboard
-      }
-    `
-
-    const variables = {
-      count: 10
+function App() {
+  const query = graphql`
+    query AppQuery($count: Int!, $cursor: String) {
+      ...Dashboard
     }
+  `
 
-    return (
-      <QueryRenderer environment={environment} query={query} variables={variables} render={RenderApp} />
-    )
+  const variables = {
+    count: 10
   }
+
+  return <QueryRenderer environment={environment} query={query} variables={variables} render={RenderApp} />
 }
 
 function RenderApp({error, props}) {

@@ -14,12 +14,12 @@ export default createFragmentContainer(
 
 function RepositoryIcon({repository}) {
   if (repository.isFork) {
-    return <span className="octicon octicon-repo-forked"></span>
+    return <span className="octicon octicon-repo-forked" />
   } else if (repository.isPrivate) {
-    return <span className="octicon octicon-lock"></span>
+    return <span className="octicon octicon-lock" />
   } else if (repository.isMirror) {
-    return <span className="octicon octicon-mirror"></span>
+    return <span className="octicon octicon-mirror" />
   } else {
-    return <span className="octicon octicon-repo"></span>
+    return <span className="octicon octicon-repo" />
   }
 }

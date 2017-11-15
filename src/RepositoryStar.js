@@ -1,3 +1,5 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
+
 import React from 'react'
 import environment from './createRelayEnvironment'
 import {commitMutation, createFragmentContainer, graphql} from 'react-relay'
@@ -6,7 +8,7 @@ function starMutation(starrableId) {
   const variables = {
     input: {
       starrableId
-    },
+    }
   }
 
   commitMutation(environment, {
@@ -19,7 +21,7 @@ function starMutation(starrableId) {
           }
         }
       }
-    `,
+    `
   })
 }
 
@@ -40,7 +42,7 @@ function unstarMutation(starrableId) {
           }
         }
       }
-    `,
+    `
   })
 }
 
@@ -58,16 +60,19 @@ export default createFragmentContainer(
 )
 
 function RepositoryStar({repository}) {
-  const octiconClassName = repository.viewerHasStarred ? "octicon octicon-star highlight" : "octicon octicon-star"
+  const octiconClassName = repository.viewerHasStarred ? 'octicon octicon-star highlight' : 'octicon octicon-star'
 
   return (
     <span className="star-badge">
       {repository.stargazers.totalCount}
-      <a href="#" onClick={(e) => {
-        e.preventDefault()
-        repository.viewerHasStarred ? unstarMutation(repository.id) : starMutation(repository.id)
-      }}>
-        <span className={octiconClassName}></span>
+      <a
+        href="#"
+        onClick={e => {
+          e.preventDefault()
+          repository.viewerHasStarred ? unstarMutation(repository.id) : starMutation(repository.id)
+        }}
+      >
+        <span className={octiconClassName} />
       </a>
     </span>
   )

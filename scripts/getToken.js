@@ -1,21 +1,23 @@
-process.stdin.resume()
-process.stdin.setEncoding("utf8")
-var util = require("util")
-var fs = require("fs")
+/* eslint-disable no-console */
 
-var filename = "src/token.js"
+process.stdin.resume()
+process.stdin.setEncoding('utf8')
+
+const fs = require('fs')
+
+const filename = 'src/token.js'
 
 if (fs.existsSync(filename)) {
   process.exit()
   return
 }
 
-console.log("Enter your GitHub API token:")
-process.stdin.on("data", function(text) {
-  var tokenJS = `module.exports = "${text.trim()}"\n`
+console.log('Enter your GitHub API token:')
+process.stdin.on('data', function(text) {
+  const tokenJS = `module.exports = "${text.trim()}"\n`
 
-  fs.writeFile(filename, tokenJS, function(err) {
-    console.log("API token saved.")
+  fs.writeFile(filename, tokenJS, function() {
+    console.log('API token saved.')
     process.exit()
   })
 })
