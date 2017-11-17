@@ -1,3 +1,4 @@
-node_modules/
 __generated__/
+dist/
+node_modules/
 schema.graphql
