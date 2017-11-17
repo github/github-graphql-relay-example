@@ -11,11 +11,11 @@
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.2",
     "babel-plugin-relay": "^1.4.1",
-    "babel-preset-react-app": "^3.1.0",
     "babel-runtime": "^6.26.0",
     "eslint": "^4.11.0",
     "eslint-plugin-github": "^0.19.1",
     "graphql": "^0.11.7",
+    "graphql-cli": "^1.1.2",
     "node-fetch": "^1.7.3",
     "relay-compiler": "^1.4.1",
     "relay-runtime": "^1.4.1",
@@ -24,9 +24,6 @@
     "webpack-dev-server": "^2.9.4"
   },
   "scripts": {
-    "start": "yarn setup && webpack-dev-server",
-    "get-schema": "node scripts/getSchema.js",
-    "get-token": "node scripts/getToken.js",
-    "setup": "yarn install && yarn run get-token && yarn run get-schema"
+    "start": "yarn install && graphql get-schema && webpack-dev-server"
   }
 }
