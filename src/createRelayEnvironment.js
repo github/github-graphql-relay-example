@@ -1,15 +1,13 @@
 /* eslint-disable github/no-then */
 
 import {Environment, Network, RecordSource, Store} from 'relay-runtime'
-import token from './token'
 
 function fetchQuery(operation, variables) {
-  return fetch('https://api.github.com/graphql', {
+  return fetch('/graphql', {
     method: 'POST',
     headers: {
       Accept: 'application/json',
-      'Content-Type': 'application/json',
-      Authorization: `Bearer ${token}`
+      'Content-Type': 'application/json'
     },
     body: JSON.stringify({query: operation.text, variables})
   }).then(response => {

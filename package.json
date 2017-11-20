@@ -3,28 +3,28 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "react": "^15.5.4",
-    "react-dom": "^15.5.4",
-    "react-relay": "dev"
+    "babel-preset-react": "^6.24.1",
+    "react": "^16.1.1",
+    "react-dom": "^16.1.1",
+    "react-relay": "^1.4.1"
   },
   "devDependencies": {
-    "babel-core": "6.22.1",
-    "babel-loader": "6.2.10",
-    "babel-plugin-relay": "dev",
-    "babel-preset-react-app": "^2.2.0",
-    "babel-runtime": "^6.20.0",
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-plugin-relay": "^1.4.1",
+    "babel-runtime": "^6.26.0",
     "eslint": "^4.11.0",
-    "eslint-plugin-github": "^0.19.0",
-    "node-fetch": "^1.6.3",
-    "relay-compiler": "dev",
-    "webpack": "1.14.0",
-    "webpack-dev-server": "1.16.2"
+    "eslint-plugin-github": "^0.19.1",
+    "graphql": "^0.11.7",
+    "graphql-cli": "^1.1.2",
+    "node-fetch": "^1.7.3",
+    "relay-compiler": "^1.4.1",
+    "relay-runtime": "^1.4.1",
+    "webpack": "^3.8.1",
+    "webpack-config-github": "^0.2.2",
+    "webpack-dev-server": "^2.9.4"
   },
   "scripts": {
-    "start": "yarn setup && node scripts/start.js",
-    "relay": "relay-compiler --src ./src --schema schema.graphql",
-    "get-schema": "node scripts/getSchema.js",
-    "get-token": "node scripts/getToken.js",
-    "setup": "yarn install && yarn run get-token && yarn run get-schema && yarn run relay"
+    "start": "yarn install && graphql get-schema && webpack-dev-server"
   }
 }

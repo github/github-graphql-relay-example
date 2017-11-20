@@ -1,6 +1,4 @@
-node_modules/
-coverage/
-build/
 __generated__/
+dist/
+node_modules/
 schema.graphql
-src/token.js
