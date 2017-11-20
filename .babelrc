@@ -1,4 +1,4 @@
 {
   "presets": ["react"],
-  "plugins": [["relay", {"compat": true, "schema": "./schema.graphql"}]]
+  "plugins": ["relay"]
 }
